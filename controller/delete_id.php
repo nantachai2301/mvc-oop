@@ -2,7 +2,7 @@
 
  include_once "../model/ConDB.php";
  include_once "../model/User.php";
- $id = $_GET["id"];
+ $id = $_GET["id1"];
  $obj_id = new User();
  $rs= $obj_id->delCourse($id);
 ?>
