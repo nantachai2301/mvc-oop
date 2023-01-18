@@ -1,5 +1,5 @@
 <?php
-class Course{
+class User{
     private $ConDB;
     public function __construct(){
         $con = new ConDB();
@@ -7,7 +7,7 @@ class Course{
         $this->ConDB = $con->conn;
     }
 
-    public function getCourse()
+    public function getUser()
     {
         $sql = "SELECT * FROM users order by firstname asc";
         $query = $this->ConDB->prepare($sql);
@@ -57,7 +57,7 @@ class Course{
 
     public function addCourse($data_course)
     {
-        $sql = "INSERT INTO `sci_cs` (`cs_id`, `cs_name`, `cs_img`, `cs_date`, `cs_wallet`)";
+        $sql = "INSERT INTO `users` (`cs_id`, `cs_name`, `cs_img`, `cs_date`, `cs_wallet`)";
         $sql .= " VALUES ('', :cs_name, :cs_img, :cs_date, :cs_wallet);";
         $query = $this->ConDB->prepare($sql);
         if( $query->execute($data_course)){
@@ -67,9 +67,9 @@ class Course{
         }
     }
 
-    public function delCourse($k_id)
+    public function delCourse($id)
     {
-        $sql = "DELETE FROM `agency` WHERE `agency_id`='".$k_id."'";
+        $sql = "DELETE FROM `users` WHERE `id`='".$id."'";
         $query = $this->ConDB->prepare($sql);
         if( $query->execute()){
             return true;

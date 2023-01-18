@@ -1,12 +1,3 @@
-
-<?php
-include_once "../model/ConDB.php";
-include_once "../model/Course.php";
-$obj_name=new Course();
-$rs2= $obj_name->getCourse();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +12,7 @@ $rs2= $obj_name->getCourse();
 
 <h1 class="text-center">ข้อมูลสมาชิกในระบบ</h1>
 <hr>
-<?php
-print_r($rs2);
-?>
+
 <table class="table table-striped table-hover">
     <thead>
         
@@ -55,8 +44,7 @@ print_r($rs2);
         <td><?php echo $rs['urole'];?></td>
         <td><?php echo $rs['created_at'];?></td>
         <td><a href="edit_form.php?id= <?php echo $row['id']; ?>" class="btn btn-primary">Edit</a></td></td>
-        <td> <a href="?delete_id= <?php echo $row["id"]; ?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')">Delete</a></td>
-        <form action="multipleDelete.php"method="POST"> 
+        <td> <a href="../controller/delete_id.php?id1= <?php echo $rs["id"]; ?>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่')">Delete</a></td>
         <td> <input type="checkbox"name="idcheckbox[]"value="<?php echo $row['id'];?>"></td>  
        
     </tr>
